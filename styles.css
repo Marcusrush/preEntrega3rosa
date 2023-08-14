@@ -1,0 +1,178 @@
+body {
+    margin: 0px;
+}
+
+/*navBar*/
+.nav-container {
+    position: sticky;
+    z-index: 3;
+    top: 0
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    height: 12vh;
+    background-color: #d2691e;
+}
+
+.navbar-logo {
+    justify-self: start;
+    margin-left: 20px;
+    color: aliceblue;
+    margin-top: 4vh;
+    cursor: pointer;
+}
+
+.ver-carrito {
+    font-size: 25px;
+    margin-right: 20px;
+    margin-top: 3.5vh;
+    cursor: pointer;
+}
+
+/*estilo del banner*/
+.banner {
+    margin-top: 0vh;
+    background-size: cover;
+    background-position: center;
+    max-width: 100%;
+    background-image:
+        url("https://humanidades.com/wp-content/uploads/2018/11/mercado-libre-e1584221732666.jpg");
+}
+
+.banner-container {
+    text-align: center;
+    padding: 10% 0;
+}
+
+.banner h1 {
+    margin: 0;
+    color: rgb(255, 0, 0);
+    text-shadow: 1px 1px 3px rgba(rgb(240, 100, 7), );
+    font-size: 62px;
+    font-weight: bold;
+    border-style: dashed;
+}
+
+.banner p {
+    font-size: 50px;
+    color: #1f22c7f3;
+    
+    text-shadow: 1px 1px 3px rgb(27, 27, 27);
+
+}
+
+
+/*product-cards*/
+.shop-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    margin-left: 80px;
+    margin-right: 80px;
+}
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgb(2, 100, 248);
+    max-width: 20%;
+    gap: 5px;
+    display: inline-table;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.card>img {
+    margin-top: 30px;
+    width: 80%;
+    height: 100x;
+
+
+}
+
+.price {
+    color: rgb(14, 114, 245);
+    font-size: 22px;
+}
+
+.card button {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(211, 6, 6);
+    text-align: center;
+    cursor: pointer;
+    width: 80%;
+    font-size: 18px;
+    }
+
+.card button:hover {
+    opacity: 0.5;
+}
+
+
+.swal2-html-container img {
+    max-width: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: 41%;
+    margin-top: 10%;
+    padding: 0px;
+    
+   
+}
+
+
+.comprar {
+    text-align: center;
+    border-radius: 30px;
+    color: rgb(1, 124, 64);
+    border-style: none;
+    padding:10px;
+    font-size: 16px;
+    transition: 0.5s;
+    
+}
+
+
+
+.colored-toast.swal2-icon-success {
+    background-color: #a5dc86 !important;
+}
+
+.colored-toast .swal2-html-container {
+    color: rgb(64, 7, 7);
+}
+
+.colored-toast .swal2-title {
+    color: white;
+}
+
+.colored-toast .swal2-close {
+    color: white;
+}
+
+.colored-toast.swal2-icon-error {
+    background-color: #f27474 !important;
+}
+
+.quitarProd {
+    background-color: #7066e0;
+    border-radius: 5px;
+    margin: 0%;
+    color: white;
+    border-style: none;
+    padding:10px;
+    font-size: 16px;
+    transition: 0.5s;
+}
+
+.quitarProd:hover{
+    cursor: pointer;
+    filter: brightness(120%);
+}
