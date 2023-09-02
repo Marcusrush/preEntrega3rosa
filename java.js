@@ -2,6 +2,45 @@ const shopContent = document.getElementById("shopContent");
 const verCarrito = document.getElementById("verCarrito");
 const modalContainer = document.getElementById("modal-container");
 
+let productoContainer = document.getElementById("producto-Container");
+
+let url = "https://fakestoreapi.com/products"
+
+
+fetch(url)
+    .then(response => response.text())
+    .then(data => {
+        const productosFetch = JSON.parse(data);
+
+        productosFetch.forEach((producto) => {
+            const productElement = document.createElement("div");
+            productElement.classList.add("card")
+            productElement.innerHTML = `
+            <h2>${producto.title}</h2>
+            <img src="${producto.image}">
+            <p>Producto: ${producto.description} </p>
+            <p>Precio: $${producto.price} </p>
+            `;
+            productoContainer.appendChild(productElement);
+            let comprarExt = document.createElement("button")
+            comprarExt.innerText = "comprar"
+            comprarExt.className = "comprar";
+            productElement.append(comprarExt);
+            comprarExt.addEventListener("click", () => {
+                carrito.push({
+                    id: producto.id,
+                    nombre: producto.title,
+                    img: producto.image,
+                    precio: producto.price,
+                });
+            })
+        })
+            .catch(error => {
+                console.log("Error al traer productos externos")
+            })
+    })
+
+
 
 let carrito = JSON.parse(localStorage.getItem("carrito")) || []; //
 productos.forEach((product) => {
@@ -11,8 +50,7 @@ productos.forEach((product) => {
     <img src="${product.img}">
     <h3>${product.nombre}</h3>
     <p class="price">${product.precio} $<p/>
-    
-    `;
+    `
 
     shopContent.append(content);
 
@@ -65,11 +103,11 @@ verCarrito.addEventListener("click", () => {
         carritoContentAll = "No hay productos en el carrito";
     }
     const total = carrito.reduce((acc, el) => acc + el.precio, 0);
-    
+
     Swal.fire({
         title: '<strong>Carrito de compra</strong>',
         icon: 'info',
-        html:`${carritoContentAll} <br> Total: $${total}`,
+        html: `${carritoContentAll} <br> Total: $${total}`,
         showCloseButton: true,
         showCancelButton: false,
         focusConfirm: false,
@@ -81,7 +119,7 @@ verCarrito.addEventListener("click", () => {
         quitar[i].addEventListener("click", () => {
             //BORRAMOS PRODUCTO
             carrito.splice(i, 1);
-            localStorage.setItem("carrito",JSON.stringify(carrito));
+            localStorage.setItem("carrito", JSON.stringify(carrito));
             const Toast = Swal.mixin({
                 toast: true,
                 position: 'top-right',
