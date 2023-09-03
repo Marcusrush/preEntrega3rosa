@@ -16,9 +16,7 @@ fetch(url)
             const productElement = document.createElement("div");
             productElement.classList.add("card")
             productElement.innerHTML = `
-            <h2>${producto.title}</h2>
             <img src="${producto.image}">
-            <p>Producto: ${producto.description} </p>
             <p>Precio: $${producto.price} </p>
             `;
             productoContainer.appendChild(productElement);
@@ -35,10 +33,9 @@ fetch(url)
                 });
             })
         })
-            .catch(error => {
-                console.log("Error al traer productos externos")
+           
             })
-    })
+    
 
 
 
